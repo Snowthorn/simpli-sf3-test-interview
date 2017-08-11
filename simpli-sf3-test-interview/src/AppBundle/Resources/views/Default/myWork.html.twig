@@ -1,0 +1,29 @@
+{% extends "AppBundle:layout:base.html.twig" %}
+
+{% block meta_title %}My work - Michel-angelo Meynet{% endblock %}
+
+{% block body %}
+  <h1>Our super table</h1>
+  <table>
+      <thead>
+          <tr>
+              {% for items in data[0].items %}
+                <th>Item{{ loop.index }}</th>
+              {% endfor %}
+              <th>Sum</th>
+              <th>Odd/Even</th>
+          </tr>
+      </thead>
+        {% for row in data %}
+            <tr>
+                {% for item in row.items %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+                <td>{{ row.sum }}</td>
+                <td>{{ row.odd ? 'odd' : 'even' }}</td>
+            </tr>
+        {% endfor %}
+      <tbody>
+      </tbody>
+  </table>
+{% endblock %}
